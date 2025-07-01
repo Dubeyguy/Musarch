@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musarch - Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-music"></i>
+        <span>Musarch</span>
+      </div>
+      
+      <nav class="nav-menu">
+        <div class="nav-item active" data-view="library">
+          <i class="fas fa-home"></i>
+          <span>Library</span>
+        </div>
+        <div class="nav-item" data-view="playlists">
+          <i class="fas fa-list"></i>
+          <span>Playlists</span>
+        </div>
+        <div class="nav-item" data-view="albums">
+          <i class="fas fa-compact-disc"></i>
+          <span>Albums</span>
+        </div>
+        <div class="nav-item" data-view="artists">
+          <i class="fas fa-user-music"></i>
+          <span>Artists</span>
+        </div>
+      </nav>
+      
+      <div class="sidebar-bottom">
+        <button class="add-folder-btn" id="addFolderBtn">
+          <i class="fas fa-folder-plus"></i>
+          <span>Add Folder</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search for songs, artists, albums..." id="searchInput">
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="settingsBtn">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="content-area">
+        <!-- Library View -->
+        <div class="view" id="libraryView">
+          <div class="view-header">
+            <h2>Your Music Library</h2>
+            <div class="view-controls">
+              <button class="view-toggle" data-view="grid" title="Grid View">
+                <i class="fas fa-th"></i>
+              </button>
+              <button class="view-toggle active" data-view="list" title="List View">
+                <i class="fas fa-list"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="music-list" id="musicList">
+            <!-- Music items will be populated here -->
+            <div class="empty-state">
+              <i class="fas fa-music"></i>
+              <h3>No music found</h3>
+              <p>Add folders containing your music to get started</p>
+              <button class="primary-btn" id="addFolderEmpty">
+                <i class="fas fa-folder-plus"></i>
+                Add Music Folder
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Other views (hidden by default) -->
+        <div class="view hidden" id="playlistsView">
+          <div class="view-header">
+            <h2>Playlists</h2>
+            <button class="primary-btn" id="createPlaylistBtn">
+              <i class="fas fa-plus"></i>
+              Create Playlist
+            </button>
+          </div>
+          <div class="playlists-grid" id="playlistsGrid">
+            <!-- Playlists will be populated here -->
+          </div>
+        </div>
+        
+        <div class="view hidden" id="albumsView">
+          <div class="view-header">
+            <h2>Albums</h2>
+          </div>
+          <div class="albums-grid" id="albumsGrid">
+            <!-- Albums will be populated here -->
+          </div>
+        </div>
+        
+        <div class="view hidden" id="artistsView">
+          <div class="view-header">
+            <h2>Artists</h2>
+          </div>
+          <div class="artists-grid" id="artistsGrid">
+            <!-- Artists will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Player Bar -->
+  <div class="player-bar">
+    <div class="player-left">
+      <div class="current-song">
+        <div class="album-art">
+          <img id="currentAlbumArt" src="" alt="Album Art">
+          <div class="default-art">
+            <i class="fas fa-music"></i>
+          </div>
+        </div>
+        <div class="song-info">
+          <div class="song-title" id="currentTitle">Select a song</div>
+          <div class="song-artist" id="currentArtist">Unknown Artist</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="control-btn" id="shuffleBtn" title="Shuffle">
+          <i class="fas fa-random"></i>
+        </button>
+        <button class="control-btn" id="prevBtn" title="Previous">
+          <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="control-btn play-btn" id="playBtn" title="Play">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="control-btn" id="nextBtn" title="Next">
+          <i class="fas fa-step-forward"></i>
+        </button>
+        <button class="control-btn" id="repeatBtn" title="Repeat">
+          <i class="fas fa-redo"></i>
+        </button>
+      </div>
+      
+      <div class="progress-container">
+        <span class="time-display" id="currentTime">0:00</span>
+        <div class="progress-bar">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-handle" id="progressHandle"></div>
+          </div>
+        </div>
+        <span class="time-display" id="totalTime">0:00</span>
+      </div>
+    </div>
+    
+    <div class="player-right">
+      <button class="control-btn" id="volumeBtn" title="Volume">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <div class="volume-container">
+        <div class="volume-slider">
+          <div class="volume-track">
+            <div class="volume-fill" id="volumeFill"></div>
+            <div class="volume-handle" id="volumeHandle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hidden Audio Element -->
+  <audio id="audio" preload="metadata"></audio>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
