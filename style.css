@@ -230,9 +230,80 @@ body {
   background-clip: text;
 }
 
+.library-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.stat-item i {
+  color: #ff6b6b;
+}
+
+.sort-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.sort-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sort-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgba(42, 42, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 100;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.sort-menu.hidden {
+  display: none;
+}
+
+.sort-option {
+  padding: 10px 16px;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.sort-option:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
 .view-controls {
   display: flex;
   gap: 8px;
+  position: relative;
 }
 
 .view-toggle {

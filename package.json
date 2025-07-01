@@ -6,7 +6,6 @@
   "name": "musarch",
   "version": "1.0.0",
   "main": "main.js",
-
   "dependencies": {
     "anymatch": "^3.1.3",
     "binary-extensions": "^2.3.0",
@@ -23,6 +22,7 @@
     "define-data-property": "^1.1.4",
     "define-properties": "^1.2.1",
     "detect-node": "^2.1.0",
+    "electron-store": "^10.1.0",
     "end-of-stream": "^1.4.5",
     "env-paths": "^2.2.1",
     "es-define-property": "^1.0.1",
@@ -55,6 +55,8 @@
     "matcher": "^3.0.0",
     "mimic-response": "^1.0.1",
     "ms": "^2.1.3",
+    "music-metadata": "^11.5.0",
+    "node-id3": "^0.2.9",
     "normalize-path": "^3.0.0",
     "normalize-url": "^6.1.0",
     "object-keys": "^1.1.1",
@@ -86,7 +88,15 @@
     "start": "electron .",
     "watch": "electron ."
   },
-  "keywords": ["music", "player", "electron", "audio", "desktop", "modern", "ui"],
+  "keywords": [
+    "music",
+    "player",
+    "electron",
+    "audio",
+    "desktop",
+    "modern",
+    "ui"
+  ],
   "author": "mmona",
   "license": "MIT",
   "description": "A beautiful, modern music player built with Electron featuring a sleek dark interface and essential music playback functionality."

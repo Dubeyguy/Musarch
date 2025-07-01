@@ -60,9 +60,16 @@
       <div class="content-area">
         <!-- Library View -->
         <div class="view" id="libraryView">
-          <div class="view-header">
+        <div class="view-header">
             <h2>Your Music Library</h2>
+            <div class="library-stats" id="libraryStats">
+              <span class="stat-item"><i class="fas fa-music"></i> <span id="songCount">0</span> songs</span>
+              <span class="stat-item"><i class="fas fa-clock"></i> <span id="totalDuration">0:00</span></span>
+            </div>
             <div class="view-controls">
+              <button class="sort-btn" id="sortBtn" title="Sort Options">
+                <i class="fas fa-sort"></i>
+              </button>
               <button class="view-toggle" data-view="grid" title="Grid View">
                 <i class="fas fa-th"></i>
               </button>
@@ -70,6 +77,16 @@
                 <i class="fas fa-list"></i>
               </button>
             </div>
+          </div>
+          
+          <!-- Sort Menu -->
+          <div class="sort-menu hidden" id="sortMenu">
+            <div class="sort-option" data-sort="name">Title A-Z</div>
+            <div class="sort-option" data-sort="artist">Artist A-Z</div>
+            <div class="sort-option" data-sort="album">Album A-Z</div>
+            <div class="sort-option" data-sort="year">Year</div>
+            <div class="sort-option" data-sort="dateAdded">Date Added</div>
+            <div class="sort-option" data-sort="duration">Duration</div>
           </div>
           
           <div class="music-list" id="musicList">
