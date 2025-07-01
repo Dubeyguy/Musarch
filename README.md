@@ -1,6 +1,7 @@
 # Musarch - Modern Music Player
 
 A beautiful, modern music player built with Electron, featuring a sleek dark interface and essential music playback functionality.
+
 A work in progress . . .
 
 ![Musarch Music Player](screenshot.png)
